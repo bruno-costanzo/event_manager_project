@@ -30,9 +30,9 @@ def legislators_by_zipcode(zip)
 end
 
 def save_thank_you_letter(id,form_letter)
-  Dir.mkdir('output') unless Dir.exist?('output')
+  Dir.mkdir('../output') unless Dir.exist?('../output')
 
-  filename = "output/thanks_#{id}.html"
+  filename = "../output/thanks_#{id}.html"
 
   File.open(filename, 'w') do |file|
     file.puts form_letter
@@ -83,7 +83,6 @@ def best_day_to_post(days)
   possible_days.each do |time|
     max = time if days.to_s.count(time) > days.to_s.count(max)
   end
-  puts max.class
   day_to_string(max)
 end
 
